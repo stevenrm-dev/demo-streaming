@@ -1,0 +1,12 @@
+.list {
+    display: flex;
+}
+
+.list-menu {
+    gap: 2.5em;
+}
+
+.list-social,
+.list-stores {
+    gap: 1.5em;
+}

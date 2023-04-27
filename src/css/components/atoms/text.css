@@ -1,0 +1,27 @@
+.title,
+.tx,
+.link {
+    font-family: system-ui, sans-serif;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.tx {
+    font-weight: 300; 
+}
+
+.link {
+    font-weight: 400;
+}
+
+.header .title,
+.header .link {
+    color: var(--c-light);
+}
+
+.footer .link,
+.footer .tx {
+    color: var(--c-grayscale-25);
+}

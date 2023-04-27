@@ -1,0 +1,14 @@
+.header-menu {
+    background: var(--c-dark-blue);
+    background: linear-gradient(0deg, var(--c-dark-blue) 0%, var(--c-light-blue) 100%);
+    padding-block: 1em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-headline {
+    background-color: var(--c-grayscale-50);
+    padding-block: 1em;
+}
