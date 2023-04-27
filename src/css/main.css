@@ -6,9 +6,11 @@
 
     /* MOLECULES */
     @import url(./components/molecules/menu.css);
+    @import url(./components/molecules/card.css);
 
     /* ORGANISMS */
     @import url(./components/organisms/header.css);
+    @import url(./components/organisms/main-content.css);
     @import url(./components/organisms/footer.css);
 
 /* SETTINGS */

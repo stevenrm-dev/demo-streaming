@@ -1,9 +1,23 @@
 .list {
     display: flex;
+    flex-flow: row wrap;
 }
 
 .list-menu {
     gap: 2.5em;
+}
+
+.footer-legal .list .list-item:not(:last-of-type) {
+    padding-right: 2em;
+    position: relative;
+}
+
+.footer-legal .list .list-item:not(:last-of-type)::before {
+    content: '|';
+    color: var(--c-grayscale-25);
+    position: absolute;
+    right: 1em;
+
 }
 
 .list-social,

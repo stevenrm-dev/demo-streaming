@@ -4,7 +4,8 @@
     font-family: system-ui, sans-serif;
 }
 
-.title {
+.title,
+.title .link {
     font-weight: 500;
 }
 
@@ -19,6 +20,16 @@
 .header .title,
 .header .link {
     color: var(--c-light);
+}
+
+.card .title {
+    font-size: 2em;
+    text-transform: uppercase;
+    color: var(--c-light);
+}
+
+.card .tx {
+    color: var(--c-grayscale-75);
 }
 
 .footer .link,

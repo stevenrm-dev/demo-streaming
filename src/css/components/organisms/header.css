@@ -2,10 +2,15 @@
     background: var(--c-dark-blue);
     background: linear-gradient(0deg, var(--c-dark-blue) 0%, var(--c-light-blue) 100%);
     padding-block: 1em;
+    
+}
+
+.header-menu .container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 1.5em;
 }
 
 .header-headline {

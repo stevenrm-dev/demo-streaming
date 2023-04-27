@@ -1,0 +1,20 @@
+.card {
+    width: 150px;
+}
+
+.card .link-card {
+    height: 225px;
+    background-color: var(--c-grayscale-75);
+    margin-bottom: .4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.card .img {
+    max-width: 200%;
+    object-fit: cover;
+    position: absolute;
+}

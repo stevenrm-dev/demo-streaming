@@ -1,0 +1,6 @@
+.main-content {
+    padding-block: 2em 10em;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.2em;
+}
