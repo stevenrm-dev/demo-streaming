@@ -1,16 +1,22 @@
-import {Link, useRoute} from 'wouter'
+import React, { useState } from 'react';
 
+//ruta imagen preestablecida
+const defaultImage = 'https://via.placeholder.com/300x450.png?text=No+image';
 
-export function Card({children, img, url, path}) {
-    const [isActive] = useRoute(path)
+export function Card({title, image}) {
+  //Si la ruta de la imagen está rota...
+  const [imageError, setImageError] = useState(false);
 
-    return (
-        <article className={`card ${isActive ? 'active' : ''}`}>
-            <Link className="link link-card" href={url}>
-                <img className="img" src={`./src/assets/${img}.png`} alt={`Card de ${img}`} />
-                <h3 className="title title-card">{children}</h3>
-            </Link>
-            <p className="tx tx-card">Popular {children}</p>
-        </article>
-    )
+  const handleError = () => {
+    setImageError(true);
+  };
+
+  return (
+    <article className="card card-program">
+      <a className="link img-wrapper" href='#'>
+        <img className="img" src={imageError ? defaultImage : image} alt={`Card de ${title}`} onError={handleError} />
+      </a>
+      <p className="tx tx-card">{title}</p>
+    </article>
+  );
 }

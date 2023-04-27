@@ -1,4 +1,4 @@
-import {Card} from '../components/Card'
+import {Card} from '../components/SectionCard'
 import SeriesPage from './Series'
 import MoviesPage from './Movies'
 import {Route} from 'wouter'

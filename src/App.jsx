@@ -1,9 +1,9 @@
-import { HeaderPlatform } from './components/Header';
-import { FooterPlatform } from './components/Footer';
-import HomePage from './pages/Home';
-import SeriesPage from './pages/Series';
-import MoviesPage from './pages/Movies';
-import { Route, Switch } from 'wouter';
+import { HeaderPlatform } from './components/Header'
+import { FooterPlatform } from './components/Footer'
+import HomePage from './pages/Home'
+import SeriesPage from './pages/Series'
+import MoviesPage from './pages/Movies'
+import { Route, Switch } from 'wouter'
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
       </HeaderPlatform>
 
       <Switch>
-        <Route path="/" component={HomePage} />
-        <Route path="/series" component={SeriesPage} />
-        <Route path="/movies" component={MoviesPage} />
+        <Route path="/" component={() => <HomePage title="Popular Titles" />} />
+        <Route path="/series" component={() => <SeriesPage title="Popular Series" />} />
+        <Route path="/movies" component={() => <MoviesPage title="Popular Movies" />} />
       </Switch>
 
       <FooterPlatform />

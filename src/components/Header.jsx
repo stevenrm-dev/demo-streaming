@@ -1,6 +1,17 @@
-import { Link } from 'wouter'
+import { Link, useLocation } from 'wouter'
 
 export function HeaderPlatform({children, logoTitle}) {
+    //Ruta actual
+    const [pathName] = useLocation()
+    
+    let headerTitle = children;
+
+    if(pathName == "/series") {
+        headerTitle = "Popular Series"
+    } else if (pathName == "/movies") {
+        headerTitle = "Popular Movies"
+    }
+
     return (
         <header className="header">
             <section className="header-menu">
@@ -21,7 +32,7 @@ export function HeaderPlatform({children, logoTitle}) {
             </section>
             <section className="header-headline">
                 <div className="container">
-                    <h2 className='title title-page'>{children}</h2>
+                    <h2 className='title title-page'>{headerTitle}</h2>
                 </div>   
             </section>
         </header>
