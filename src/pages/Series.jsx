@@ -24,7 +24,7 @@ export default function SeriesPage() {
       }, [])
 
   return (
-    <main className="main-content container">
+    <main className="main-content main-programs container">
       {series.map((serie, index) => (
         <Card key={index} title={serie.title} image={serie.images['Poster Art'].url}/>
       ))}

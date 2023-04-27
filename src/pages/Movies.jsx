@@ -1,32 +1,32 @@
 import { Card } from '../components/Card'
 import React, { useState, useEffect } from 'react'
 
-export default function SeriesPage() {
-    const [series, setSeries] = useState([])
+export default function MoviesPage() {
+    const [movies, setMovies] = useState([])
 
     useEffect(() => {
-        const fetchSeries = async () => {
+        const fetchMovies = async () => {
           try {
             const response = await fetch('./src/data/sample.json')
             const data = await response.json()
 
             //Filtro de tipo de programa y de año igual o mayor
-            const filteredSeries = data.entries.filter((entry) => entry.programType === 'series' && entry.releaseYear >= 2010)
+            const filteredMovies = data.entries.filter((entry) => entry.programType === 'movie' && entry.releaseYear >= 2010)
             //Ordenar alfanuméricamente y en sentido ascendente
-            const sortedSeries = filteredSeries.sort((a, b) => a.title.localeCompare(b.title))
+            const sortedMovies = filteredMovies.sort((a, b) => a.title.localeCompare(b.title))
             //Mostrar únicamente las 20 primeras
-            setSeries(sortedSeries.slice(0, 20))
+            setMovies(sortedMovies.slice(0, 20))
           } catch (error) {
-            console.error('Error fetching series:', error)
+            console.error('Error fetching movies:', error)
           }
         }
-        fetchSeries()
+        fetchMovies()
       }, [])
 
   return (
-    <main className="main-content container">
-      {series.map((serie, index) => (
-        <Card key={index} title={serie.title} image={serie.images['Poster Art'].url}/>
+    <main className="main-content main-programs container">
+      {movies.map((movie, index) => (
+        <Card key={index} title={movie.title} image={movie.images['Poster Art'].url}/>
       ))}
     </main>
   )

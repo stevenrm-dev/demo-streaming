@@ -4,3 +4,7 @@
     flex-flow: row wrap;
     gap: 1.2em;
 }
+
+.main-programs {
+    justify-content: center;
+}
