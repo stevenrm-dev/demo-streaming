@@ -1,12 +1,15 @@
 import { Card } from '../components/Card'
-import React, { useState, useEffect } from 'react'
+import { Modal } from '../components/Modal'
 import {Error} from '../components/Error'
 import { Loading } from '../components/Loading'
+import React, { useState, useEffect } from 'react'
 
 export default function SeriesPage() {
     const [series, setSeries] = useState([])
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(true)
+    const [showModal, setShowModal] = useState(false)
+    const [currentSerie, setCurrentSerie] = useState(null)
 
     useEffect(() => {
         const fetchSeries = async () => {
@@ -32,13 +35,37 @@ export default function SeriesPage() {
         fetchSeries()
       }, [])
 
+      const modalOn = (index)=> {
+        setCurrentSerie(index)
+        setShowModal(true)
+      }
+
+      const modalOff = ()=> {
+        setShowModal(false)
+      }
+
   return (
     <main className="main-content main-programs container">
       {error ? (<Error />) :
         (loading ? <Loading /> : (
-          series.map((serie, index) => (
-            <Card key={index} title={serie.title} image={serie.images['Poster Art'].url} />
-          ))
+          <>
+            {series.map((serie, index) => (
+              <div key={index} data-index={index} onMouseEnter={()=> modalOn(index)} onMouseLeave={modalOff}>
+                <Card
+                  title={serie.title}
+                  image={serie.images['Poster Art'].url}
+                />
+              </div>
+            ))}
+            {showModal && currentSerie !== null && (
+              <Modal
+                title={series[currentSerie].title}
+                image={series[currentSerie].images['Poster Art'].url}
+                description={series[currentSerie].description}
+                releaseYear={series[currentSerie].releaseYear}
+              />
+            )}
+          </>
         ))
       }
     </main>

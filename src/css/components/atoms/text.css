@@ -36,3 +36,9 @@
 .footer .tx {
     color: var(--c-grayscale-25);
 }
+
+.modal .title {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--c-grayscale-50);
+}

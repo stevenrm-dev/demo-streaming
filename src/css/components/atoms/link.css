@@ -2,3 +2,19 @@
     background-color: var(--c-grayscale-50);
     padding: .45em 1em;
 }
+
+.link:hover {
+    transition: 1s ease all;
+}
+
+.header-menu .link:not(.link-cta, .title-primary .link):hover {
+    color: var(--c-grayscale-75);
+}
+
+.link-cta:hover {
+    background-color: var(--c-grayscale-75);
+}
+
+.footer-legal .link:hover {
+    color: var(--c-light);
+}

@@ -1,7 +1,7 @@
 import { Card } from '../components/Card'
-import React, { useState, useEffect } from 'react'
 import {Error} from '../components/Error'
 import { Loading } from '../components/Loading'
+import React, { useState, useEffect } from 'react'
 
 export default function MoviesPage() {
     const [movies, setMovies] = useState([])
