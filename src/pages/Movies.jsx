@@ -1,4 +1,5 @@
 import { Card } from '../components/Card'
+import { Modal } from '../components/Modal'
 import {Error} from '../components/Error'
 import { Loading } from '../components/Loading'
 import React, { useState, useEffect } from 'react'
@@ -7,6 +8,9 @@ export default function MoviesPage() {
     const [movies, setMovies] = useState([])
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(true)
+    const [showModal, setShowModal] = useState(false)
+    const [currentMovie, setCurrentMovie] = useState(null)
+
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -32,13 +36,37 @@ export default function MoviesPage() {
         fetchMovies()
       }, [])
 
+    const modalOn = (index)=> {
+      setCurrentMovie(index)
+      setShowModal(true)
+    }
+
+    const modalOff = ()=> {
+      setShowModal(false)
+    }
+
   return (
     <main className="main-content main-programs container">
       {error ? (<Error />) :
         (loading ? <Loading /> : (
-          movies.map((movie, index) => (
-            <Card key={index} title={movie.title} image={movie.images['Poster Art'].url} />
-          ))
+          <>
+            {movies.map((movie, index) => (
+              <div key={index} data-index={index} onClick={()=> modalOn(index)} onBlur={modalOff}>
+                <Card
+                  title={movie.title}
+                  image={movie.images['Poster Art'].url}
+                />
+              </div>
+            ))}
+            {showModal && currentMovie !== null && (
+              <Modal
+                title={movies[currentMovie].title}
+                image={movies[currentMovie].images['Poster Art'].url}
+                description={movies[currentMovie].description}
+                releaseYear={movies[currentMovie].releaseYear}
+              />
+            )}
+          </>
         ))
       }
     </main>

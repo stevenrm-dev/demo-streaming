@@ -35,14 +35,14 @@ export default function SeriesPage() {
         fetchSeries()
       }, [])
 
-      const modalOn = (index)=> {
-        setCurrentSerie(index)
-        setShowModal(true)
-      }
+    const modalOn = (index)=> {
+      setCurrentSerie(index)
+      setShowModal(true)
+    }
 
-      const modalOff = ()=> {
-        setShowModal(false)
-      }
+    const modalOff = ()=> {
+      setShowModal(false)
+    }
 
   return (
     <main className="main-content main-programs container">
@@ -50,7 +50,7 @@ export default function SeriesPage() {
         (loading ? <Loading /> : (
           <>
             {series.map((serie, index) => (
-              <div key={index} data-index={index} onMouseEnter={()=> modalOn(index)} onMouseLeave={modalOff}>
+              <div key={index} data-index={index} onClick={()=> modalOn(index)} onBlur={modalOff}>
                 <Card
                   title={serie.title}
                   image={serie.images['Poster Art'].url}
